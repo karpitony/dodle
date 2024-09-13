@@ -5,6 +5,7 @@ import { fisherYatesShuffle, LCG } from "../../lib/random";
 import { jamo } from "../../lib/jamo";
 import { calc } from "../../lib/calc";
 import AnswerInput from "./AnswerInput";
+import Share from "../share/Share";
 
 function Game() {
   const [userInput, setUserInput] = useState("");
@@ -13,6 +14,8 @@ function Game() {
   const [attempts, setAttempts] = useState([]); // 각 행의 입력을 저장
   const [currentAttempt, setCurrentAttempt] = useState(0); // 현재 몇 번째 시도인지 추적
   const [userResults, setUserResults] = useState([]); // 사용자의 결과를 저장
+  const [show, setShow] = useState(false);
+  const [seed, setSeed] = useState(Date.now());
 
   useEffect(() => {
     const removeSuffixAndCharacter = (name) => name.slice(0, -1);
@@ -38,7 +41,7 @@ function Game() {
   const daysSinceEpoch = Math.floor((now - epochMs) / msInDay);
 
   const shuffledDosi = useMemo(() => {
-    const seed = daysSinceEpoch;
+    setSeed(daysSinceEpoch);
     const random = LCG(seed);
     return fisherYatesShuffle([...combindDosiList], random);
   }, [combindDosiList, daysSinceEpoch]);
@@ -96,6 +99,10 @@ function Game() {
 
     setCurrentAttempt((prev) => prev + 1); // 다음 줄로 넘어가기
     setUserInput("");
+    const isMatched = result.every((r) => r.matched === 1); // 모든 자모가 매칭되었는지 확인
+    if (isMatched ||currentAttempt === 5) {
+      setShow(true);
+    }
   };
 
   const handleChange = (e) => {
@@ -116,6 +123,7 @@ function Game() {
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
+      <Share userResults={userResults} show={show} seed={seed}/>
     </div>
   );
 }
