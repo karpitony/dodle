@@ -3,6 +3,7 @@ import data from "../../assets/data.json";
 import GameGrid from "./GameGrid";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
 import { jamo } from "../../lib/jamo";
+import { calc } from "../../lib/calc";
 import AnswerInput from "./AnswerInput";
 
 function Game() {
@@ -11,6 +12,7 @@ function Game() {
   const [jamoCount, setJamoCount] = useState(0);
   const [attempts, setAttempts] = useState([]); // 각 행의 입력을 저장
   const [currentAttempt, setCurrentAttempt] = useState(0); // 현재 몇 번째 시도인지 추적
+  const [userResults, setUserResults] = useState([]); // 사용자의 결과를 저장
 
   useEffect(() => {
     const removeSuffixAndCharacter = (name) => name.slice(0, -1);
@@ -68,10 +70,12 @@ function Game() {
 
     if (lettersJamo.length !== jamoCount) {
       alert("자모 갯수가 맞지 않습니다.");
+      setUserInput("");
       return;
     }
     if (!combindDosiList.includes(letters)) {
       alert("데이터 목록에 없습니다. 다시한번 확인해주세요.");
+      setUserInput("");
       return;
     }
 
@@ -82,8 +86,16 @@ function Game() {
       return updatedAttempts;
     });
 
+    // calc 함수를 사용하여 매칭 결과를 계산하고 userResults에 저장
+    const result = calc(lettersJamo, todayDosiJamo);
+    setUserResults((prevResults) => {
+      const updatedResults = [...prevResults];
+      updatedResults[currentAttempt] = result; // 현재 시도의 결과 저장
+      return updatedResults;
+    });
+
     setCurrentAttempt((prev) => prev + 1); // 다음 줄로 넘어가기
-    setUserInput(""); // 입력 필드 초기화
+    setUserInput("");
   };
 
   const handleChange = (e) => {
@@ -93,7 +105,7 @@ function Game() {
   return (
     <div>
       {jamoCount > 0 && (
-        <GameGrid attempts={attempts} dosiLength={jamoCount} />
+        <GameGrid attempts={attempts} dosiLength={jamoCount} userResult={userResults} />
       )}
       <AnswerInput
         value={userInput}
