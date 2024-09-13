@@ -4,7 +4,7 @@ export default function Share({ userResults, show, seed, setModalOpen }) {
   const GRAY_BOX = "⬜";
 
   function generateSummary() {
-    let summary = `Dodle 결과 #${seed}\n`;
+    let summary = `Dodle 결과 #${seed}\nhttps://dodle.vercel.app/\n`;
     userResults.forEach((userResult) => {
       userResult.forEach((letterInfo) => {
         switch (letterInfo.matched) {
