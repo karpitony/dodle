@@ -3,7 +3,7 @@ import cn from "../../lib/cn";
 function Cell({ inputJamo, userResult }) {
   // userResult에 따라 동적으로 클래스 이름 결정
   let baseClasses = cn(
-    "w-20 h-20 border-solid border-2 flex items-center",
+    "w-14 h-14 md:w-20 md:h-20  border-solid border-2 flex items-center",
     "justify-center mx-0.5 text-2xl font-bold rounded"
   );
 
