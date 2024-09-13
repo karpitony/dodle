@@ -12,7 +12,9 @@ export default function Footer() {
       >
         <div>&copy; 2024 karpitony, YEAHx4.</div>
         <div className="text-3xl">
-          <FaGithub />
+          <a href="https://github.com/karpitony/dodle" target="_blank">
+            <FaGithub />
+          </a>
         </div>
       </div>
     </footer>
