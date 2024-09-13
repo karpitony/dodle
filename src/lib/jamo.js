@@ -1,4 +1,4 @@
-function jamo(kor) {
+export function jamo(kor) {
   // 초성, 중성, 종성 배열
   const f = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ',
           'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ',
