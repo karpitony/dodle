@@ -1,29 +1,22 @@
-import React, { useEffect, useState, useMemo } from "react";
 import HowToPlay from "./components/how-to-play/HowToPlay";
 import Game from "./components/game/Game";
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Content from "./components/Content";
 
 function App() {
-
   return (
-   <div>
-    <div align="center">
-      <p className="text-2xl bold border border-slate-600 rounded">🌁 Dodle</p>
-    </div>
+    <>
+      <Header />
 
-    <Game />
+      <Content isMain>
+        <Game />
+        <HowToPlay />
+      </Content>
 
-    <HowToPlay />
-
-    <a
-        href="https://github.com/karpitony/dodle"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img className="h-10" src="src/assets/github-mark.png" alt="GitHub" />
-      </a>
-   </div>
-  )
+      <Footer />
+    </>
+  );
 }
 
 export default App;

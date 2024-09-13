@@ -16,7 +16,7 @@ function Game() {
 
   useEffect(() => {
     const removeSuffixAndCharacter = (name) => name.slice(0, -1);
-  
+
     const processedSi = data["시"].map(removeSuffixAndCharacter);
     const processedGun = data["군"].map(removeSuffixAndCharacter);
     const processedGu = data["구"].map(removeSuffixAndCharacter);
@@ -26,7 +26,7 @@ function Game() {
       군: processedGun,
       구: processedGu,
     });
-  }, []); 
+  }, []);
 
   const combindDosiList = useMemo(() => {
     return [...parsedData["시"], ...parsedData["군"]];
@@ -47,7 +47,7 @@ function Game() {
   console.log(todayDosi); // Debugging
 
   const todayDosiJamo = useMemo(() => {
-    if (typeof todayDosi === 'string' && todayDosi.length > 0) {
+    if (typeof todayDosi === "string" && todayDosi.length > 0) {
       return jamo(todayDosi).flat(); // 2차원 배열을 1차원 배열로 변환
     }
     return [];
@@ -99,13 +99,17 @@ function Game() {
   };
 
   const handleChange = (e) => {
-    setUserInput(e.target.value); 
+    setUserInput(e.target.value);
   };
 
   return (
     <div>
       {jamoCount > 0 && (
-        <GameGrid attempts={attempts} dosiLength={jamoCount} userResult={userResults} />
+        <GameGrid
+          attempts={attempts}
+          dosiLength={jamoCount}
+          userResult={userResults}
+        />
       )}
       <AnswerInput
         value={userInput}
