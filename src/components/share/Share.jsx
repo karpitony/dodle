@@ -1,12 +1,12 @@
 export default function Share({ userResults, show, seed, setModalOpen }) {
-  const GREEN_BOX = '🟩';
-  const YELLOW_BOX = '🟨';
-  const GRAY_BOX = '⬜';
+  const GREEN_BOX = "🟩";
+  const YELLOW_BOX = "🟨";
+  const GRAY_BOX = "⬜";
 
   function generateSummary() {
     let summary = `Dodle 결과 #${seed}\n`;
-    userResults.forEach(userResult => {
-      userResult.forEach(letterInfo => {
+    userResults.forEach((userResult) => {
+      userResult.forEach((letterInfo) => {
         switch (letterInfo.matched) {
           case 1:
             summary += GREEN_BOX;
@@ -18,29 +18,27 @@ export default function Share({ userResults, show, seed, setModalOpen }) {
             summary += GRAY_BOX;
         }
       });
-      summary += '\n'; // New line for each guess
+      summary += "\n"; // New line for each guess
     });
     return summary.trim(); // Remove the last new line
   }
 
   function shareResult() {
     const summary = generateSummary();
-    navigator.clipboard.writeText(summary).then(() => {
-      alert('Result copied to clipboard!');
-    }, (err) => {
-      alert('Failed to copy result: ', err);
-    });
+    navigator.clipboard.writeText(summary).then(
+      () => {
+        alert("Result copied to clipboard!");
+      },
+      (err) => {
+        alert("Failed to copy result: ", err);
+      }
+    );
   }
 
   return (
     <>
       {show && (
-        <div
-          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50"
-          onClick={(e) => {
-            setModalOpen(false);
-          }}
-        >
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
           <div
             className="bg-white flex flex-col w-[500px] p-4 rounded shadow-lg"
             onClick={(e) => e.stopPropagation()} // Prevent modal close on click inside
@@ -55,14 +53,6 @@ export default function Share({ userResults, show, seed, setModalOpen }) {
             >
               결과 복사하기
             </button>
-            <div className="flex justify-center">
-              <button
-                className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
-                onClick={() => setModalOpen(false)}
-              >
-                설명창 닫기
-              </button>
-            </div>
           </div>
         </div>
       )}

@@ -6,6 +6,7 @@ import { jamo } from "../../lib/jamo";
 import { calc } from "../../lib/calc";
 import AnswerInput from "./AnswerInput";
 import Share from "../share/Share";
+import { debug } from "../../lib/logger";
 
 function Game() {
   const [userInput, setUserInput] = useState("");
@@ -47,7 +48,7 @@ function Game() {
   }, [combindDosiList, daysSinceEpoch]);
 
   const todayDosi = shuffledDosi.length > 0 ? shuffledDosi[0] : undefined;
-  console.log(todayDosi); // Debugging
+  debug(todayDosi); // Debugging
 
   const todayDosiJamo = useMemo(() => {
     if (typeof todayDosi === "string" && todayDosi.length > 0) {
@@ -100,7 +101,7 @@ function Game() {
     setCurrentAttempt((prev) => prev + 1); // 다음 줄로 넘어가기
     setUserInput("");
     const isMatched = result.every((r) => r.matched === 1); // 모든 자모가 매칭되었는지 확인
-    if (isMatched ||currentAttempt === 5) {
+    if (isMatched || currentAttempt === 5) {
       setShow(true);
     }
   };
@@ -123,7 +124,7 @@ function Game() {
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
-      <Share userResults={userResults} show={show} seed={seed}/>
+      <Share userResults={userResults} show={show} seed={seed} />
     </div>
   );
 }
