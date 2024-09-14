@@ -1,6 +1,19 @@
 import cn from "../../lib/cn";
 
 export default function AnswerInput({ value, onKeyDown, onChange }) {
+  const handleButtonClick = () => {
+    // 'Enter' keydown event 생성
+    const enterKeyDownEvent = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      keyCode: 13, // Enter key code
+      code: 'Enter',
+      which: 13,
+      bubbles: true
+    });
+
+    // 실제로 input에서 'Enter' keydown 이벤트를 발생시킴
+    document.querySelector('input').dispatchEvent(enterKeyDownEvent);
+  };
   return (
     <div className="mt-12 flex justify-center">
       <input
@@ -19,6 +32,15 @@ export default function AnswerInput({ value, onKeyDown, onChange }) {
           transition: "border-color 0.2s ease-in-out",
         }}
       />
+      <button
+        className={cn(
+          "ml-2 px-4 py-1 bg-slate-500 focus:bg-green-500 text-white rounded-sm",
+          "md:hidden"
+        )}
+        onClick={handleButtonClick}
+      >
+        Enter
+      </button>
     </div>
   );
 }
