@@ -6,8 +6,7 @@ export default function Footer() {
     <footer className="flex justify-center">
       <div
         className={cn(
-          "max-w-[1024px] w-full p-8 flex justify-between",
-          "items-center  border-t-2 border-gray-400"
+          "max-w-[1024px] w-full p-5 md:p-8 flex justify-between items-center"
         )}
       >
         <div>&copy; 2024 karpitony, YEAHx4.</div>
