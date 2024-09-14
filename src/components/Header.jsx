@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header
-      className="flex justify-center mb-16 py-4"
+      className="flex justify-center mb-10 md:mb-16 py-4"
       style={{
         boxShadow: "0px 4px 29px 0px rgba(66, 68, 90, 0.14)",
       }}
