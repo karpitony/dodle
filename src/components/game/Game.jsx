@@ -23,7 +23,9 @@ function Game() {
 
     const processedSi = data["시"].map(removeSuffixAndCharacter);
     const processedGun = data["군"].map(removeSuffixAndCharacter);
-    const processedGu = data["구"].map(removeSuffixAndCharacter);
+    const processedGu = data["구"]
+    .map(removeSuffixAndCharacter)
+    .filter((name) => name.length > 1);
 
     setParsedData({
       시: processedSi,
@@ -33,7 +35,7 @@ function Game() {
   }, []);
 
   const combindDosiList = useMemo(() => {
-    return [...parsedData["시"], ...parsedData["군"]];
+    return [...parsedData["시"], ...parsedData["군"], ...parsedData["구"]];
   }, [parsedData]);
 
   const epochMs = new Date("September 12, 2024 00:00:00").valueOf();
