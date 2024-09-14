@@ -1,9 +1,20 @@
 import cn from "../../lib/cn";
+import { useState, useEffect } from "react";
 
-function Cell({ inputJamo, userResult }) {
+function Cell({ inputJamo, userResult, jamoLength }) {
+  const [cellSize, setCellSize] = useState("w-14 h-14");
+  
+  useEffect(() => {
+    if (jamoLength === 7) {
+      setCellSize("w-12 h-12");
+    } else if (jamoLength === 8) {
+      setCellSize("w-10 h-10");
+    }
+  }, [jamoLength]);
+
   // userResult에 따라 동적으로 클래스 이름 결정
   let baseClasses = cn(
-    "w-14 h-14 md:w-20 md:h-20  border-solid border-2 flex items-center",
+    `${cellSize} md:w-20 md:h-20  border-solid border-2 flex items-center`,
     "justify-center mx-0.5 text-4xl font-bold rounded"
   );
 

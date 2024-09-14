@@ -12,6 +12,7 @@ export default function GameGrid({ attempts, dosiLength, userResult }) {
               key={index}
               inputJamo={attempts[attempt]?.[index] || ""}
               userResult={userResult[attempt]?.[index] || { matched: 0 }} // userResult 값 전달
+              jamoLength={dosiLength}
             />
           ))}
         </div>
