@@ -24,8 +24,9 @@ export default function AnswerInput({ value, onKeyDown, onChange }) {
         onChange={onChange}
         className={cn(
           "flex justify-center border border-slate-500 px-4 py-2 rounded-sm",
-          "w-full text-center text-lg focus:outline-none border-t-0 border-x-0",
-          "border-b-2 border-slate-300 focus:border-green-500"
+          "text-center text-lg focus:outline-none border-t-0 border-x-0",
+          "border-b-2 border-slate-300 focus:border-blue-500",
+          "w-80 md:w-full"
         )}
         style={{
           // animation: "ripple 0.5s forwards ease-in-out",
@@ -34,8 +35,8 @@ export default function AnswerInput({ value, onKeyDown, onChange }) {
       />
       <button
         className={cn(
-          "ml-2 px-4 py-1 bg-slate-500 focus:bg-green-500 text-white rounded-sm",
-          "md:hidden"
+          "ml-2 px-2 py-1 bg-blue-500 text-white rounded-sm",
+          "md:hidden text-center"
         )}
         onClick={handleButtonClick}
       >
