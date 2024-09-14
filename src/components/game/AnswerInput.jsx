@@ -1,4 +1,5 @@
 import cn from "../../lib/cn";
+import { AiOutlineEnter } from "react-icons/ai";
 
 export default function AnswerInput({ value, onKeyDown, onChange }) {
   const handleButtonClick = () => {
@@ -35,12 +36,12 @@ export default function AnswerInput({ value, onKeyDown, onChange }) {
       />
       <button
         className={cn(
-          "ml-2 px-2 py-1 bg-blue-500 text-white rounded-sm",
+          "ml-2 px-4 py-0.5 bg-blue-500 text-white rounded",
           "md:hidden text-center"
         )}
         onClick={handleButtonClick}
       >
-        Enter
+        <AiOutlineEnter />
       </button>
     </div>
   );
