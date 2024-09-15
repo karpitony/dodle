@@ -19,7 +19,7 @@ export default function AnswerInput({ value, onKeyDown, onChange }) {
     <div className="mt-12 flex justify-center">
       <input
         type="text"
-        placeholder="추측한 시/군 이름을 입력해주세요."
+        placeholder="추측한 시/군/구 이름을 입력해주세요."
         value={value}
         onKeyDown={onKeyDown}
         onChange={onChange}
