@@ -7,7 +7,7 @@ function Cell({ inputJamo, userResult, jamoLength }) {
   useEffect(() => {
     if (jamoLength === 7) {
       setCellSize("w-12 h-12");
-    } else if (jamoLength === 8) {
+    } else if (jamoLength >= 8) {
       setCellSize("w-10 h-10");
     }
   }, [jamoLength]);
