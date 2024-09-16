@@ -1,7 +1,7 @@
 [![My Skills](https://skillicons.dev/icons?i=js,react,vite,tailwind)](https://skillicons.dev)
 # Dodle 도들
 
-도들(Dodle)은 한국의 도시 이름으로 하는 워들 게임입니다.
+도들(Dodle)은 한국의 도시 이름을 맞추는 워들 게임입니다.
 
 ## How to Play
 
