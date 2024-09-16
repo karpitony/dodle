@@ -15,11 +15,15 @@
 - 정답은 매일 밤 자정에 업데이트 됩니다.
 - 어떤 데이터가 들어있는지 궁금하면 [여기](https://raw.githubusercontent.com/karpitony/dodle/main/src/assets/data.json)를 클릭하세요.
 
-## Source
+## Reference
 
-**대한민국 시/군/구 이름 참고**
+**주제 아이디어 & 코드**
+- https://github.com/ainta/chuldle
+
+**대한민국 시/군/구 이름**
 -  https://github.com/acherium/korea-province-list
 - [https://ko.wikipedia.org/wiki/대한민국의_행정_구역](https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%ED%96%89%EC%A0%95_%EA%B5%AC%EC%97%AD)
+
 
 > [!NOTE]
 > 데이터 추가 혹은 삭제 등의 업데이트가 필요한 경우 편하게 이슈나 PR 남겨주세요. 감사합니다.
