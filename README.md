@@ -1,9 +1,13 @@
 [![My Skills](https://skillicons.dev/icons?i=js,react,vite,tailwind)](https://skillicons.dev)
 # Dodle 도들
 
+<img src="./img/screenshot01.png">
+
 도들(Dodle)은 한국의 도시 이름을 맞추는 워들 게임입니다.
 
 ## How to Play
+
+<img src="./img/screenshot02.png">
 
 - 게임 방법은 간단합니다. 정답을 맞추기 위해 시/군/구의 이름을 한 단어씩 입력하면서 정답을 찾아보세요.
 - 답이 '장수'인 경우 '서울'을 입력하면 아래와 같이 표시됩니다.
